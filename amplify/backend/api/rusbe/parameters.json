@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "rusbe",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitob8fa88b8",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

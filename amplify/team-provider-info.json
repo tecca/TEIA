@@ -1,0 +1,24 @@
+{
+    "devel": {
+        "awscloudformation": {
+            "AuthRoleName": "rusbe-devel-20190501174538-authRole",
+            "UnauthRoleArn": "arn:aws:iam::582223494038:role/rusbe-devel-20190501174538-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::582223494038:role/rusbe-devel-20190501174538-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "rusbe-devel-20190501174538-deployment",
+            "UnauthRoleName": "rusbe-devel-20190501174538-unauthRole",
+            "StackName": "rusbe-devel-20190501174538",
+            "StackId": "arn:aws:cloudformation:us-east-1:582223494038:stack/rusbe-devel-20190501174538/148e29d0-6c52-11e9-832f-0e86e2a0c174"
+        },
+        "categories": {
+            "auth": {
+                "cognitob8fa88b8": {
+                    "facebookAppId": "452302208913480",
+                    "googleClientId": "567241745626-b3latjdle302tb50cdvfis9c7gfikhcq.apps.googleusercontent.com",
+                    "googleAndroid": "567241745626-aidiie2avngsve8vkpusk834t8qhgc3i.apps.googleusercontent.com",
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Facebook\",\"client_id\":\"452302208913480\",\"client_secret\":\"ef4292b437dfdad6b6d39a8777e7897c\"},{\"ProviderName\":\"Google\",\"client_id\":\"567241745626-b3latjdle302tb50cdvfis9c7gfikhcq.apps.googleusercontent.com\",\"client_secret\":\"IC4afKec_wPEprnTJ7pjItLc\"}]"
+                }
+            }
+        }
+    }
+}

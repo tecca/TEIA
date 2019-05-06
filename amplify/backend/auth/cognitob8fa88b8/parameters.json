@@ -1,0 +1,87 @@
+{
+    "identityPoolName": "cognitob8fa88b8_identitypool_b8fa88b8",
+    "allowUnauthenticatedIdentities": false,
+    "lambdaLogPolicy": "cognitob8fa88b8_lambda_log_policy",
+    "openIdLambdaRoleName": "cognitob8fa88b8_openid_lambda_role",
+    "openIdRolePolicy": "cognitob8fa88b8_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "cognitob8fa88b8_openid_lambda_iam_policy",
+    "openIdLogPolicy": "cognitob8fa88b8_openid_lambda_log_policy",
+    "userPoolName": "cognitob8fa88b8_userpool_b8fa88b8",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OPTIONAL",
+    "mfaTypes": [
+        "SMS Text Message",
+        "TOTP"
+    ],
+    "roleName": "cognitob8fa88b8_sns-role",
+    "roleExternalId": "cognitob8fa88b8_role_external_id",
+    "policyName": "cognitob8fa88b8-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "6",
+    "passwordPolicyCharacters": [
+        "Requires Numbers"
+    ],
+    "requiredAttributes": [
+        "phone_number"
+    ],
+    "userpoolClientName": "cognitob8fa88b8_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+        "email, phone_number"
+    ],
+    "userpoolClientReadAttributes": [
+        "email, phone_number"
+    ],
+    "mfaLambdaRole": "cognitob8fa88b8_totp_lambda_role",
+    "mfaLambdaLogPolicy": "cognitob8fa88b8_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "cognitob8fa88b8_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "cognitob8fa88b8_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "cognitob8fa88b8_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "cognitob8fa88b8_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "cognitob8fa88b8_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "cognitob8fa88b8",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "manual",
+    "usernameAttributes": [
+        "email, phone_number"
+    ],
+    "thirdPartyAuth": true,
+    "authProviders": [
+        "graph.facebook.com",
+        "accounts.google.com"
+    ],
+    "hostedUI": true,
+    "hostedUIDomainName": "teia",
+    "authProvidersUserPool": [
+        "Facebook",
+        "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://teia-devel.auth.us-east-1.amazoncognito.com/\",\"https://teia-devel.auth.us-east-1.amazoncognito.com/\",\"https://teia.auth.us-east-1.amazoncognito.com/\"],\"LogoutURLs\":[\"https://teia-devel.auth.us-east-1.amazoncognito.com/\",\"https://teia-devel.auth.us-east-1.amazoncognito.com/\",\"https://teia.auth.us-east-1.amazoncognito.com/\"]}"
+}

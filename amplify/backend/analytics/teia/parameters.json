@@ -1,0 +1,20 @@
+{
+    "appName": "teia",
+    "roleName": "pinpointLambdaRolefa488b40",
+    "cloudWatchPolicyName": "cloudWatchPolicyfa488b40",
+    "pinpointPolicyName": "pinpointPolicyfa488b40",
+    "authPolicyName": "pinpoint_amplify_fa488b40",
+    "unauthPolicyName": "pinpoint_amplify_fa488b40",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
