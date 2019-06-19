@@ -1,0 +1,431 @@
+type User {
+  id: ID!
+  cognitoId: ID
+  description: String
+  badges: [Badge]
+  isAcolhedor: Boolean!
+  cpf: String
+  isCertified: Boolean
+  createdAt: String
+  updatedAt: String
+  messages(filter: ModelMessageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMessageConnection
+  acolhimentos(filter: ModelAcolhimentoConnectionFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelAcolhimentoConnectionConnection
+}
+
+type Badge {
+  nome: String
+  description: String
+  createdAt: String
+}
+
+type Acolhimento {
+  id: ID!
+  name: String!
+  createdAt: String
+  updatedAt: String
+  members: [String!]!
+  messages(filter: ModelMessageFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelMessageConnection
+  associated(filter: ModelAcolhimentoConnectionFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelAcolhimentoConnectionConnection
+}
+
+type AcolhimentoConnection {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  user: User!
+  acolhimentoConnectionUserId: ID
+  acolhimentoConnectionAcolhimentoId: ID!
+  acolhimento: Acolhimento!
+}
+
+type Message {
+  id: ID!
+  content: String!
+  createdAt: String
+  updatedAt: String
+  authorId: String
+  messageAcolhimentoId: ID!
+  author: User
+  acolhimento: Acolhimento!
+}
+
+type Subscription {
+  onCreateAcolhimentoConnection(acolhimentoConnectionUserId: ID!): AcolhimentoConnection @aws_subscribe(mutations: ["createAcolhimentoConnection"])
+  onCreateMessage(messageAcolhimentoId: ID!): Message @aws_subscribe(mutations: ["createMessage"])
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+}
+
+input BadgeInput {
+  nome: String
+  description: String
+  createdAt: String
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelUserConnection {
+  items: [User]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelUserFilterInput {
+  id: ModelIDFilterInput
+  cognitoId: ModelIDFilterInput
+  description: ModelStringFilterInput
+  isAcolhedor: ModelBooleanFilterInput
+  cpf: ModelStringFilterInput
+  isCertified: ModelBooleanFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+type Query {
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  getAcolhimento(id: ID!): Acolhimento
+  searchUsers(filter: SearchableUserFilterInput, sort: SearchableUserSortInput, limit: Int, nextToken: Int): SearchableUserConnection
+  searchAcolhimentoConnections(filter: SearchableAcolhimentoConnectionFilterInput, sort: SearchableAcolhimentoConnectionSortInput, limit: Int, nextToken: Int): SearchableAcolhimentoConnectionConnection
+  searchMessages(filter: SearchableMessageFilterInput, sort: SearchableMessageSortInput, limit: Int, nextToken: Int): SearchableMessageConnection
+}
+
+input CreateUserInput {
+  id: ID
+  cognitoId: ID
+  description: String
+  badges: [BadgeInput]
+  isAcolhedor: Boolean!
+  cpf: String
+  isCertified: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+input UpdateUserInput {
+  id: ID!
+  cognitoId: ID
+  description: String
+  badges: [BadgeInput]
+  isAcolhedor: Boolean
+  cpf: String
+  isCertified: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+input DeleteUserInput {
+  id: ID
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(input: UpdateUserInput!): User
+  deleteUser(input: DeleteUserInput!): User
+  createAcolhimento(input: CreateAcolhimentoInput!): Acolhimento
+  createAcolhimentoConnection(input: CreateAcolhimentoConnectionInput!): AcolhimentoConnection
+  updateAcolhimentoConnection(input: UpdateAcolhimentoConnectionInput!): AcolhimentoConnection
+  createMessage(input: CreateMessageInput!): Message
+  updateMessage(input: UpdateMessageInput!): Message
+  deleteMessage(input: DeleteMessageInput!): Message
+}
+
+input ModelAcolhimentoFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  members: ModelStringFilterInput
+  and: [ModelAcolhimentoFilterInput]
+  or: [ModelAcolhimentoFilterInput]
+  not: ModelAcolhimentoFilterInput
+}
+
+input CreateAcolhimentoInput {
+  id: ID
+  name: String!
+  createdAt: String
+  updatedAt: String
+  members: [String!]!
+}
+
+input ModelAcolhimentoConnectionFilterInput {
+  id: ModelIDFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  acolhimentoConnectionUserId: ModelIDFilterInput
+  acolhimentoConnectionAcolhimentoId: ModelIDFilterInput
+  and: [ModelAcolhimentoConnectionFilterInput]
+  or: [ModelAcolhimentoConnectionFilterInput]
+  not: ModelAcolhimentoConnectionFilterInput
+}
+
+input CreateAcolhimentoConnectionInput {
+  id: ID
+  createdAt: String
+  updatedAt: String
+  acolhimentoConnectionUserId: ID
+  acolhimentoConnectionAcolhimentoId: ID!
+}
+
+input UpdateAcolhimentoConnectionInput {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  acolhimentoConnectionUserId: ID
+  acolhimentoConnectionAcolhimentoId: ID
+}
+
+input ModelMessageFilterInput {
+  id: ModelIDFilterInput
+  content: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  authorId: ModelStringFilterInput
+  messageAcolhimentoId: ModelIDFilterInput
+  and: [ModelMessageFilterInput]
+  or: [ModelMessageFilterInput]
+  not: ModelMessageFilterInput
+}
+
+input CreateMessageInput {
+  id: ID
+  content: String!
+  createdAt: String
+  updatedAt: String
+  authorId: String
+  messageAcolhimentoId: ID!
+}
+
+input UpdateMessageInput {
+  id: ID!
+  content: String
+  createdAt: String
+  updatedAt: String
+  authorId: String
+  messageAcolhimentoId: ID
+}
+
+input DeleteMessageInput {
+  id: ID
+}
+
+type ModelMessageConnection {
+  items: [Message]
+  nextToken: String
+}
+
+type ModelAcolhimentoConnectionConnection {
+  items: [AcolhimentoConnection]
+  nextToken: String
+}
+
+input SearchableStringFilterInput {
+  ne: String
+  eq: String
+  match: String
+  matchPhrase: String
+  matchPhrasePrefix: String
+  multiMatch: String
+  exists: Boolean
+  wildcard: String
+  regexp: String
+}
+
+input SearchableIDFilterInput {
+  ne: ID
+  eq: ID
+  match: ID
+  matchPhrase: ID
+  matchPhrasePrefix: ID
+  multiMatch: ID
+  exists: Boolean
+  wildcard: ID
+  regexp: ID
+}
+
+input SearchableIntFilterInput {
+  ne: Int
+  gt: Int
+  lt: Int
+  gte: Int
+  lte: Int
+  eq: Int
+  range: [Int]
+}
+
+input SearchableFloatFilterInput {
+  ne: Float
+  gt: Float
+  lt: Float
+  gte: Float
+  lte: Float
+  eq: Float
+  range: [Float]
+}
+
+input SearchableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input SearchableUserFilterInput {
+  id: SearchableIDFilterInput
+  cognitoId: SearchableIDFilterInput
+  description: SearchableStringFilterInput
+  isAcolhedor: SearchableBooleanFilterInput
+  cpf: SearchableStringFilterInput
+  isCertified: SearchableBooleanFilterInput
+  createdAt: SearchableStringFilterInput
+  updatedAt: SearchableStringFilterInput
+  and: [SearchableUserFilterInput]
+  or: [SearchableUserFilterInput]
+  not: SearchableUserFilterInput
+}
+
+enum SearchableSortDirection {
+  asc
+  desc
+}
+
+enum SearchableUserSortableFields {
+  id
+  cognitoId
+  description
+  isAcolhedor
+  cpf
+  isCertified
+  createdAt
+  updatedAt
+}
+
+input SearchableUserSortInput {
+  field: SearchableUserSortableFields
+  direction: SearchableSortDirection
+}
+
+type SearchableUserConnection {
+  items: [User]
+  nextToken: String
+}
+
+input SearchableAcolhimentoConnectionFilterInput {
+  id: SearchableIDFilterInput
+  createdAt: SearchableStringFilterInput
+  updatedAt: SearchableStringFilterInput
+  acolhimentoConnectionUserId: SearchableIDFilterInput
+  acolhimentoConnectionAcolhimentoId: SearchableIDFilterInput
+  and: [SearchableAcolhimentoConnectionFilterInput]
+  or: [SearchableAcolhimentoConnectionFilterInput]
+  not: SearchableAcolhimentoConnectionFilterInput
+}
+
+enum SearchableAcolhimentoConnectionSortableFields {
+  id
+  createdAt
+  updatedAt
+  acolhimentoConnectionUserId
+  acolhimentoConnectionAcolhimentoId
+}
+
+input SearchableAcolhimentoConnectionSortInput {
+  field: SearchableAcolhimentoConnectionSortableFields
+  direction: SearchableSortDirection
+}
+
+type SearchableAcolhimentoConnectionConnection {
+  items: [AcolhimentoConnection]
+  nextToken: String
+}
+
+input SearchableMessageFilterInput {
+  id: SearchableIDFilterInput
+  content: SearchableStringFilterInput
+  createdAt: SearchableStringFilterInput
+  updatedAt: SearchableStringFilterInput
+  authorId: SearchableStringFilterInput
+  messageAcolhimentoId: SearchableIDFilterInput
+  and: [SearchableMessageFilterInput]
+  or: [SearchableMessageFilterInput]
+  not: SearchableMessageFilterInput
+}
+
+enum SearchableMessageSortableFields {
+  id
+  content
+  createdAt
+  updatedAt
+  authorId
+  messageAcolhimentoId
+}
+
+input SearchableMessageSortInput {
+  field: SearchableMessageSortableFields
+  direction: SearchableSortDirection
+}
+
+type SearchableMessageConnection {
+  items: [Message]
+  nextToken: String
+}

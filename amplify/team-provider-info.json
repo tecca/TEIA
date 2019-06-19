@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "teia-dev-20190619201322-authRole",
+            "UnauthRoleArn": "arn:aws:iam::582223494038:role/teia-dev-20190619201322-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::582223494038:role/teia-dev-20190619201322-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "teia-dev-20190619201322-deployment",
+            "UnauthRoleName": "teia-dev-20190619201322-unauthRole",
+            "StackName": "teia-dev-20190619201322",
+            "StackId": "arn:aws:cloudformation:us-east-1:582223494038:stack/teia-dev-20190619201322/d5d5f3a0-92e7-11e9-b598-12b31d3117be"
+        },
+        "categories": {
+            "auth": {
+                "teia437ba905437ba905": {
+                    "facebookAppId": "452302208913480",
+                    "googleClientId": "567241745626-b3latjdle302tb50cdvfis9c7gfikhcq.apps.googleusercontent.com",
+                    "googleAndroid": "567241745626-aidiie2avngsve8vkpusk834t8qhgc3i.apps.googleusercontent.com"
+                }
+            }
+        }
+    }
+}

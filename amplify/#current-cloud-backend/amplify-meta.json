@@ -1,0 +1,57 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "teia-dev-20190619201322-authRole",
+			"UnauthRoleArn": "arn:aws:iam::582223494038:role/teia-dev-20190619201322-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::582223494038:role/teia-dev-20190619201322-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "teia-dev-20190619201322-deployment",
+			"UnauthRoleName": "teia-dev-20190619201322-unauthRole",
+			"StackName": "teia-dev-20190619201322",
+			"StackId": "arn:aws:cloudformation:us-east-1:582223494038:stack/teia-dev-20190619201322/d5d5f3a0-92e7-11e9-b598-12b31d3117be"
+		}
+	},
+	"auth": {
+		"teia437ba905437ba905": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"lastPushTimeStamp": "2019-06-20T10:11:45.108Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/teia-dev-20190619201322-deployment/amplify-cfn-templates/auth/teia437ba905437ba905-cloudformation-template.yml",
+				"logicalId": "authteia437ba905437ba905"
+			},
+			"output": {
+				"GoogleWebClient": "567241745626-b3latjdle302tb50cdvfis9c7gfikhcq.apps.googleusercontent.com",
+				"CreatedSNSRole": "arn:aws:iam::582223494038:role/teia43437ba905_sns-role-dev",
+				"AppClientSecret": "5cql8f9aiud0qvjtuaaat04alq09jnhd1ajmcsm51vgd5bropsh",
+				"UserPoolId": "us-east-1_TU9Kadq4y",
+				"AppClientIDWeb": "46kskgio44hb3akc5009uu13cc",
+				"AppClientID": "3hp2pvduj9q0h4auo9q37a8m5k",
+				"FacebookWebClient": "452302208913480",
+				"IdentityPoolId": "us-east-1:9af79ea6-354c-4cce-b5c9-8b36041ee2a7",
+				"IdentityPoolName": "teia437ba905_identitypool_437ba905__dev",
+				"GoogleAndroidClient": "567241745626-aidiie2avngsve8vkpusk834t8qhgc3i.apps.googleusercontent.com",
+				"UserPoolName": "teia437ba905_userpool_437ba905"
+			},
+			"lastPushDirHash": "hvdbASH0VTPQ221nJD18SrOm4K0="
+		}
+	},
+	"api": {
+		"teia": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"securityType": "AMAZON_COGNITO_USER_POOLS",
+				"GraphQLAPIIdOutput": "dj5duuv7rbdnnpizaxxysotdci",
+				"GraphQLAPIEndpointOutput": "https://7red5rsjwzagxaj3ur4jyaufkm.appsync-api.us-east-1.amazonaws.com/graphql"
+			},
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/teia-dev-20190619201322-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"logicalId": "apiteia"
+			},
+			"lastPushTimeStamp": "2019-06-20T10:11:47.269Z",
+			"lastPushDirHash": "m4knOSdCqlab/yF8pkZKFkrafEI="
+		}
+	},
+	"storage": {}
+}

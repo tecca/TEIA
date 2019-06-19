@@ -1,0 +1,204 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateAcolhimentoConnection($acolhimentoConnectionUserId: ID!) {
+  onCreateAcolhimentoConnection(
+    acolhimentoConnectionUserId: $acolhimentoConnectionUserId
+  ) {
+    id
+    createdAt
+    updatedAt
+    user {
+      id
+      cognitoId
+      description
+      badges {
+        nome
+        description
+        createdAt
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimentoConnectionUserId
+    acolhimentoConnectionAcolhimentoId
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnCreateMessage($messageAcolhimentoId: ID!) {
+  onCreateMessage(messageAcolhimentoId: $messageAcolhimentoId) {
+    id
+    content
+    createdAt
+    updatedAt
+    authorId
+    messageAcolhimentoId
+    author {
+      id
+      cognitoId
+      description
+      badges {
+        nome
+        description
+        createdAt
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    cognitoId
+    description
+    badges {
+      nome
+      description
+      createdAt
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    cognitoId
+    description
+    badges {
+      nome
+      description
+      createdAt
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    cognitoId
+    description
+    badges {
+      nome
+      description
+      createdAt
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
