@@ -8,12 +8,10 @@ subscription OnCreateAcolhimentoConnection($acolhimentoConnectionUserId: ID!) {
     updatedAt
     user {
       id
-      cognitoId
       description
       badges {
         nome
         description
-        createdAt
       }
       isAcolhedor
       cpf
@@ -54,12 +52,10 @@ subscription OnCreateMessage($messageAcolhimentoId: ID!) {
     messageAcolhimentoId
     author {
       id
-      cognitoId
       description
       badges {
         nome
         description
-        createdAt
       }
       isAcolhedor
       cpf
@@ -91,12 +87,10 @@ subscription OnCreateMessage($messageAcolhimentoId: ID!) {
 subscription OnCreateUser {
   onCreateUser {
     id
-    cognitoId
     description
     badges {
       nome
       description
-      createdAt
     }
     isAcolhedor
     cpf
@@ -129,12 +123,10 @@ subscription OnCreateUser {
 subscription OnUpdateUser {
   onUpdateUser {
     id
-    cognitoId
     description
     badges {
       nome
       description
-      createdAt
     }
     isAcolhedor
     cpf
@@ -167,12 +159,10 @@ subscription OnUpdateUser {
 subscription OnDeleteUser {
   onDeleteUser {
     id
-    cognitoId
     description
     badges {
       nome
       description
-      createdAt
     }
     isAcolhedor
     cpf

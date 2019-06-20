@@ -2,12 +2,10 @@
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    cognitoId
     description
     badges {
       nome
       description
-      createdAt
     }
     isAcolhedor
     cpf
@@ -45,12 +43,10 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      cognitoId
       description
       badges {
         nome
         description
-        createdAt
       }
       isAcolhedor
       cpf
@@ -111,12 +107,10 @@ query SearchUsers(
   ) {
     items {
       id
-      cognitoId
       description
       badges {
         nome
         description
-        createdAt
       }
       isAcolhedor
       cpf
@@ -151,7 +145,6 @@ query SearchAcolhimentoConnections(
       updatedAt
       user {
         id
-        cognitoId
         description
         isAcolhedor
         cpf
@@ -193,7 +186,6 @@ query SearchMessages(
       messageAcolhimentoId
       author {
         id
-        cognitoId
         description
         isAcolhedor
         cpf

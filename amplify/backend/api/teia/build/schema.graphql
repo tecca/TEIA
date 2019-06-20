@@ -1,6 +1,5 @@
 type User {
   id: ID!
-  cognitoId: ID
   description: String
   badges: [Badge]
   isAcolhedor: Boolean!
@@ -15,7 +14,6 @@ type User {
 type Badge {
   nome: String
   description: String
-  createdAt: String
 }
 
 type Acolhimento {
@@ -60,7 +58,6 @@ type Subscription {
 input BadgeInput {
   nome: String
   description: String
-  createdAt: String
 }
 
 enum ModelSortDirection {
@@ -130,7 +127,6 @@ input ModelBooleanFilterInput {
 
 input ModelUserFilterInput {
   id: ModelIDFilterInput
-  cognitoId: ModelIDFilterInput
   description: ModelStringFilterInput
   isAcolhedor: ModelBooleanFilterInput
   cpf: ModelStringFilterInput
@@ -153,7 +149,6 @@ type Query {
 
 input CreateUserInput {
   id: ID
-  cognitoId: ID
   description: String
   badges: [BadgeInput]
   isAcolhedor: Boolean!
@@ -165,7 +160,6 @@ input CreateUserInput {
 
 input UpdateUserInput {
   id: ID!
-  cognitoId: ID
   description: String
   badges: [BadgeInput]
   isAcolhedor: Boolean
@@ -332,7 +326,6 @@ input SearchableBooleanFilterInput {
 
 input SearchableUserFilterInput {
   id: SearchableIDFilterInput
-  cognitoId: SearchableIDFilterInput
   description: SearchableStringFilterInput
   isAcolhedor: SearchableBooleanFilterInput
   cpf: SearchableStringFilterInput
@@ -351,7 +344,6 @@ enum SearchableSortDirection {
 
 enum SearchableUserSortableFields {
   id
-  cognitoId
   description
   isAcolhedor
   cpf
