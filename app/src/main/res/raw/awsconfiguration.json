@@ -1,0 +1,68 @@
+{
+    "UserAgent": "aws-amplify-cli/0.1.0",
+    "Version": "1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-east-1:9af79ea6-354c-4cce-b5c9-8b36041ee2a7",
+                "Region": "us-east-1"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-east-1_TU9Kadq4y",
+            "AppClientId": "3hp2pvduj9q0h4auo9q37a8m5k",
+            "AppClientSecret": "5cql8f9aiud0qvjtuaaat04alq09jnhd1ajmcsm51vgd5bropsh",
+            "Region": "us-east-1"
+        }
+    },
+    "GoogleSignIn": {
+        "Permissions": "email,profile,openid",
+        "ClientId-WebApp": "567241745626-b3latjdle302tb50cdvfis9c7gfikhcq.apps.googleusercontent.com"
+    },
+    "FacebookSignIn": {
+        "AppId": "452302208913480",
+        "Permissions": "public_profile"
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://7red5rsjwzagxaj3ur4jyaufkm.appsync-api.us-east-1.amazonaws.com/graphql",
+            "Region": "us-east-1",
+            "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+            "ClientDatabasePrefix": "teia_AMAZON_COGNITO_USER_POOLS"
+        }
+    },
+    "Auth": {
+        "Default": {
+            "OAuth": {
+                "WebDomain": "teia-devel.auth.us-east-1.amazoncognito.com",
+                "AppClientId": "10biem3nr9bkqrvdt22ajjsunr",
+                "AppClientSecret": "ae46bnhva4l103bo2ujah73lc0dbt2gk665du4pmns71sf652p",
+                "SignInRedirectURI": "https://teia-devel.auth.us-east-1.amazoncognito.com/,https://teia-devel.auth.us-east-1.amazoncognito.com/,https://teia.auth.us-east-1.amazoncognito.com/",
+                "SignOutRedirectURI": "https://teia-devel.auth.us-east-1.amazoncognito.com/,https://teia-devel.auth.us-east-1.amazoncognito.com/,https://teia.auth.us-east-1.amazoncognito.com/",
+                "Scopes": [
+                    "phone",
+                    "email",
+                    "openid",
+                    "profile",
+                    "aws.cognito.signin.user.admin"
+                ]
+            }
+        }
+    },
+    "PinpointAnalytics": {
+        "Default": {
+            "AppId": "016a63f25b5c40fab2525400de575b27",
+            "Region": "us-east-1"
+        }
+    },
+    "PinpointTargeting": {
+        "Default": {
+            "Region": "us-east-1"
+        }
+    }
+}

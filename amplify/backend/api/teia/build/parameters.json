@@ -1,0 +1,12 @@
+{
+    "AppSyncApiName": "teia",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authteia437ba905437ba905",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "teia-dev-20190619201322-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/8b3974088d33f5a9795766471cabcf6cb673ff3a"
+}

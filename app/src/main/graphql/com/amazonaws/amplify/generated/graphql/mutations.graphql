@@ -1,0 +1,359 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    id
+    name
+    description
+    badges {
+      nome
+      description
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    id
+    name
+    description
+    badges {
+      nome
+      description
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    id
+    name
+    description
+    badges {
+      nome
+      description
+    }
+    isAcolhedor
+    cpf
+    isCertified
+    createdAt
+    updatedAt
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    acolhimentos {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateAcolhimento($input: CreateAcolhimentoInput!) {
+  createAcolhimento(input: $input) {
+    id
+    name
+    createdAt
+    updatedAt
+    members
+    messages {
+      items {
+        id
+        content
+        createdAt
+        updatedAt
+        authorId
+        messageAcolhimentoId
+      }
+      nextToken
+    }
+    associated {
+      items {
+        id
+        createdAt
+        updatedAt
+        acolhimentoConnectionUserId
+        acolhimentoConnectionAcolhimentoId
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateAcolhimentoConnection(
+  $input: CreateAcolhimentoConnectionInput!
+) {
+  createAcolhimentoConnection(input: $input) {
+    id
+    createdAt
+    updatedAt
+    user {
+      id
+      name
+      description
+      badges {
+        nome
+        description
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimentoConnectionUserId
+    acolhimentoConnectionAcolhimentoId
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateAcolhimentoConnection(
+  $input: UpdateAcolhimentoConnectionInput!
+) {
+  updateAcolhimentoConnection(input: $input) {
+    id
+    createdAt
+    updatedAt
+    user {
+      id
+      name
+      description
+      badges {
+        nome
+        description
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimentoConnectionUserId
+    acolhimentoConnectionAcolhimentoId
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+mutation CreateMessage($input: CreateMessageInput!) {
+  createMessage(input: $input) {
+    id
+    content
+    createdAt
+    updatedAt
+    authorId
+    messageAcolhimentoId
+    author {
+      id
+      name
+      description
+      badges {
+        nome
+        description
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateMessage($input: UpdateMessageInput!) {
+  updateMessage(input: $input) {
+    id
+    content
+    createdAt
+    updatedAt
+    authorId
+    messageAcolhimentoId
+    author {
+      id
+      name
+      description
+      badges {
+        nome
+        description
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteMessage($input: DeleteMessageInput!) {
+  deleteMessage(input: $input) {
+    id
+    content
+    createdAt
+    updatedAt
+    authorId
+    messageAcolhimentoId
+    author {
+      id
+      name
+      description
+      badges {
+        nome
+        description
+      }
+      isAcolhedor
+      cpf
+      isCertified
+      createdAt
+      updatedAt
+      messages {
+        nextToken
+      }
+      acolhimentos {
+        nextToken
+      }
+    }
+    acolhimento {
+      id
+      name
+      createdAt
+      updatedAt
+      members
+      messages {
+        nextToken
+      }
+      associated {
+        nextToken
+      }
+    }
+  }
+}

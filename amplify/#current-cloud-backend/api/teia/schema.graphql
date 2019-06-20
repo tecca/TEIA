@@ -1,0 +1,83 @@
+type User
+  @searchable
+  @model
+  @auth(rules: [{
+    allow: owner, ownerField: "id",
+    queries: null
+  }]) {
+  id: ID!
+  name: String!
+  description: String
+  badges: [Badge]
+  isAcolhedor: Boolean!
+  cpf: String
+  isCertified: Boolean
+  createdAt: String
+  updatedAt: String
+  messages: [Message] @connection(name: "UserMessages")
+  acolhimentos: [AcolhimentoConnection] @connection(name: "UserConnections")
+}
+
+type Badge {
+  nome: String
+  description: String
+}
+
+type Acolhimento
+  @model(
+    mutations: { create: "createAcolhimento" }
+    queries: { get: "getAcolhimento" }
+    subscriptions: null
+  )
+  @auth(rules: [{
+    allow: owner,
+    ownerField: "members"
+  }]) {
+  id: ID!
+  name: String!
+  createdAt: String
+  updatedAt: String
+  members: [String!]!
+  messages: [Message] @connection(name: "AcolhimentoMsgs", sortField: "createdAt")
+  associated: [AcolhimentoConnection] @connection(name: "AssociatedConnections")
+}
+
+type AcolhimentoConnection
+  @searchable
+  @model(
+    mutations: { create: "createAcolhimentoConnection", update: "updateAcolhimentoConnection" }
+    queries: null
+    subscriptions: null
+  ) {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  user: User! @connection(name: "UserConnections")
+  acolhimentoConnectionUserId: ID
+  acolhimentoConnectionAcolhimentoId: ID!
+  acolhimento: Acolhimento! @connection(name: "AssociatedConnections")
+}
+
+type Message
+  @searchable
+  @model(subscriptions: null, queries: null)
+  @auth(rules: [{
+    allow: owner,
+    ownerField: "authorId"
+  }]) {
+  id: ID!
+  content: String!
+  createdAt: String
+  updatedAt: String
+  authorId: String
+  messageAcolhimentoId: ID!
+  author: User @connection(name: "UserMessages", keyField: "authorId")
+  acolhimento: Acolhimento! @connection(name: "AcolhimentoMsgs")
+}
+
+type Subscription {
+  onCreateAcolhimentoConnection(acolhimentoConnectionUserId: ID!): AcolhimentoConnection
+    @aws_subscribe(mutations: ["createAcolhimentoConnection"])
+  onCreateMessage(messageAcolhimentoId: ID!): Message
+    @aws_subscribe(mutations: ["createMessage"])
+}

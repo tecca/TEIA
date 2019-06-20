@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "teia",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authteia437ba905437ba905",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
