@@ -15,7 +15,7 @@
 		"teia437ba905437ba905": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"lastPushTimeStamp": "2019-06-20T10:11:45.108Z",
+			"lastPushTimeStamp": "2019-06-20T10:49:50.602Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/teia-dev-20190619201322-deployment/amplify-cfn-templates/auth/teia437ba905437ba905-cloudformation-template.yml",
 				"logicalId": "authteia437ba905437ba905"
@@ -49,8 +49,8 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/teia-dev-20190619201322-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiteia"
 			},
-			"lastPushTimeStamp": "2019-06-20T10:11:47.269Z",
-			"lastPushDirHash": "m4knOSdCqlab/yF8pkZKFkrafEI="
+			"lastPushTimeStamp": "2019-06-20T10:49:53.277Z",
+			"lastPushDirHash": "EtAIUTCqFe5Nl4AjqDib5dDcLq8="
 		}
 	},
 	"storage": {}

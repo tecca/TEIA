@@ -2,7 +2,6 @@
 mutation CreateUser($input: CreateUserInput!) {
   createUser(input: $input) {
     id
-    cognitoId
     description
     badges {
       nome
@@ -40,7 +39,6 @@ mutation CreateUser($input: CreateUserInput!) {
 mutation UpdateUser($input: UpdateUserInput!) {
   updateUser(input: $input) {
     id
-    cognitoId
     description
     badges {
       nome
@@ -78,7 +76,6 @@ mutation UpdateUser($input: UpdateUserInput!) {
 mutation DeleteUser($input: DeleteUserInput!) {
   deleteUser(input: $input) {
     id
-    cognitoId
     description
     badges {
       nome
@@ -152,7 +149,6 @@ mutation CreateAcolhimentoConnection(
     updatedAt
     user {
       id
-      cognitoId
       description
       badges {
         nome
@@ -197,7 +193,6 @@ mutation UpdateAcolhimentoConnection(
     updatedAt
     user {
       id
-      cognitoId
       description
       badges {
         nome
@@ -243,7 +238,6 @@ mutation CreateMessage($input: CreateMessageInput!) {
     messageAcolhimentoId
     author {
       id
-      cognitoId
       description
       badges {
         nome
@@ -287,7 +281,6 @@ mutation UpdateMessage($input: UpdateMessageInput!) {
     messageAcolhimentoId
     author {
       id
-      cognitoId
       description
       badges {
         nome
@@ -331,7 +324,6 @@ mutation DeleteMessage($input: DeleteMessageInput!) {
     messageAcolhimentoId
     author {
       id
-      cognitoId
       description
       badges {
         nome

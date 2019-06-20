@@ -6,7 +6,6 @@ type User
     queries: null
   }]) {
   id: ID!
-  cognitoId: ID
   description: String
   badges: [Badge]
   isAcolhedor: Boolean!
